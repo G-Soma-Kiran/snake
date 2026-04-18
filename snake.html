@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="snake.css">
+    <title>Snake</title>
+</head>
+<body>
+    <div id="response-div">
+            <p>Oh no you have lost</p>
+            <button id="continue">Continue</button>
+            <button id="replay">Replay</button>
+    </div>
+    <div id="button-container">
+        <div id="score">
+            <span>Score : </span>
+            <span id="score-value">0</span>
+        </div>
+        <button id="play">START</button>
+    </div>
+    <div id="container">
+        
+        <div class="snake-head">
+            <div class="eye right horizontal-eye" id="right_eye1"></div>
+            <div class="eye right horizontal-eye" id="right_eye2"></div>
+            <div class="eye left horizontal-eye" id="left_eye1"></div>
+            <div class="eye left horizontal-eye" id="left_eye2"></div>
+            <div class="eye up vertical-eye" id="up_eye1"></div>
+            <div class="eye up vertical-eye" id="up_eye2"></div>
+            <div class="eye down vertical-eye" id="down_eye1"></div>
+            <div class="eye down vertical-eye" id="down_eye2"></div>
+        </div>
+        <div class="apple">
+        </div>
+    </div>
+    <script src="snake.js"></script>
+</body>
+</html>
