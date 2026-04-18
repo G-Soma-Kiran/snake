@@ -14,6 +14,14 @@ body{
     position: relative;
 }
 
+#name-card{
+  width : 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
 #response-div {
     display: none;
     position: absolute;
