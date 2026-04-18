@@ -6,6 +6,7 @@ let apple = document.querySelector(".apple");
 let direction = "right";
 let lastProcessedDirection = "right";
 const score = document.querySelector("#score").querySelector("#score-value");
+const highScore = document.querySelector("#score").querySelector("#high-score-value");
 const container = document.querySelector("#container");
 const rightEye = document.querySelectorAll(".right");
 const leftEye = document.querySelectorAll(".left");
@@ -16,6 +17,7 @@ const gameOverAppearDiv = document.querySelector("#response-div");
 const continueBtn = document.querySelector("#continue");
 const replayBtn = document.querySelector("#replay");
 let gameRunning = false;
+localStorage.setItem('high-score', 0);
 
 handleEye(direction);
 const gameStartButton = document.querySelector("#play");
@@ -198,11 +200,20 @@ async function moveSnake(){
     let eatenApple = checkEatApple(change);
     if(eatenApple){
         newApple(change);
+        score.innerText = `${snakeLength-1}`;
+        console.log(parseInt(score.innerText) , localStorage.getItem("high-score"));
+        if(parseInt(score.innerText) > parseInt(localStorage.getItem("high-score"))){
+            localStorage.setItem("high-score" , (score.innerText));
+        }
+        highScore.innerText=`${localStorage.getItem("high-score")}`;
     }
 
     let gameOver = checkGameOver(change);
     if(gameOver === true){
         gameOverAppearDiv.style.display = "flex";
+        if(snakeLength === 400){
+            gameOverAppearDiv.querySelector("p").innerText = "YOU HAVE WON THE SNAKE GAME, CONGO BRO";
+        }
         gameRunning=false;
         return;
     }else{
@@ -226,7 +237,6 @@ async function moveSnake(){
         }
     }
     // console.log(headPosition);
-    score.innerText = `${snakeLength-1}`;
      setTimeout(()=>{
         moveSnake();
     } , 150)
