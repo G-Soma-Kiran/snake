@@ -29,8 +29,8 @@ gameStartButton.addEventListener('click' , ()=>{
     }
 })
 continueBtn.addEventListener('click' ,()=>{
-    gameStartButton.click();
     gameOverAppearDiv.style.display = "none";
+    gameStartButton.click();
 })
 replayBtn.addEventListener('click' , ()=>{
     gameOverAppearDiv.style.display = "none";
@@ -45,7 +45,7 @@ replayBtn.addEventListener('click' , ()=>{
     apple.style.top = "0px";
     snakeHead.style.left = "0px";
     snakeHead.style.top = "0px";
-    handleEye();
+    handleEye(direction);
     setTimeout(()=>{
         gameStartButton.click();
     },200);
